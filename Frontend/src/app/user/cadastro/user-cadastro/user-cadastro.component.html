@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="login">
+        <h1>Cadastro</h1>
+        <br>
+        <input type="text" pInputText placeholder="Username" [formControl]="username"/>
+        <br>
+        <input type="text" pInputText placeholder="Senha" [formControl]="senha1" />
+        <br>
+        <input type="text" pInputText placeholder="Confirmar senha" [formControl]="senha2" />
+        <br>
+        <p-button (click)="cadastrar()" label="Entrar">
+            <fa-icon [icon]="doneIcon" style="margin-right: 5px;"></fa-icon>
+        </p-button>
+    </div>
+    <p-messages [(value)]="mensagem" [enableService]="false" [closable]="true"></p-messages>
+</div>

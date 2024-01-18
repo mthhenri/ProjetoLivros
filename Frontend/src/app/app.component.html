@@ -1,0 +1,23 @@
+<p-toolbar>
+    <div style="display: flex; justify-content: start;">
+        <p-button [text]="true" [rounded]="true" (click)="goToUser()">
+            <fa-icon [icon]="userIcon" size="lg"></fa-icon>
+        </p-button>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <p-button [text]="true" [rounded]="true" (click)="goToHome()">
+            <fa-icon [icon]="homeIcon" size="lg"></fa-icon>
+        </p-button>
+        <p-button [text]="true" [rounded]="true" (click)="goToBooks()">
+            <fa-icon [icon]="booksIcon" size="lg"></fa-icon>
+        </p-button>
+    </div>
+    <div style="display: flex; justify-content: end;">
+    </div>
+</p-toolbar>
+<div>
+    <router-outlet>
+    </router-outlet>
+    <!-- <p-messages [(value)]="mensagem" [enableService]="false" [closable]="true"></p-messages> -->
+    <p-toast></p-toast>
+</div>

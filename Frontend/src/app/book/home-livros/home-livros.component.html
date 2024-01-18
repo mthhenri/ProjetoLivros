@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Galeria de Livros</h1>
+    <br><br><br><br>
+    <p-table [value]="livros" [scrollable]="true" scrollHeight="600px" [tableStyle]="{'min-width': '90rem', 'max-width': '120rem'}">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th> Título </th>
+                <th> Autor </th>
+                <th> Qtd Páginas </th>
+                <th> Categoria </th>
+                <th> Gênero </th>
+                <th> Editora </th>
+                <th> Lançamento </th>
+                <th> Reviews </th>
+                <th> Recomendar </th>
+                <th> Não Recomendar</th>
+                <th> Favoritar </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-livro>
+            <tr>
+                <td> {{livro.titulo}} </td>
+                <td> {{livro.autor}} </td>
+                <td> {{livro.quantidadePaginas}} </td>
+                <td> {{livro.categoria}} </td>
+                <td> {{livro.genero}} </td>
+                <td> {{livro.editora}} </td>
+                <td> {{livro.dataLancamento}} </td>
+                <td> <fa-icon [icon]="like" size="lg"></fa-icon>{{calcRecomendacao(livro.recomendacaoPositiva, livro.recomendacaoNegativa)}}<fa-icon [icon]="unlike" size="lg"></fa-icon> </td>
+                <td> <p-button [outlined]="true" severity="success" (click)="recomendar(livro.livroId)"> <fa-icon [icon]="like" size="lg"></fa-icon> </p-button> </td>
+                <td> <p-button [outlined]="true" severity="danger" (click)="naorecomendar(livro.livroId)"> <fa-icon [icon]="unlike" size="lg"></fa-icon> </p-button> </td>
+                <td> <p-button [disabled]="jaFavoritado(livro.livroId)"  [outlined]="true" severity="warning" (click)="favoritar(livro.livroId)"> <fa-icon [icon]="fav" size="lg"></fa-icon> </p-button> </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-toast></p-toast>
+</div>

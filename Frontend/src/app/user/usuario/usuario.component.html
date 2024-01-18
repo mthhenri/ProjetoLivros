@@ -1,0 +1,50 @@
+<div class="container">
+    <div [className]="logado()[1]" id="format">
+        <h1>Faça seu login ou cadastro!</h1>
+        <div style="display: flex; justify-content: center;">
+            <div style="margin-right: 15px;">
+                <p-button [icon]="" (click)="loginGo()" label="Entrar">
+                    <fa-icon [icon]="doneIcon" style="margin-right: 5px;"></fa-icon>
+                </p-button>
+            </div>
+            <br>
+            <p-button [icon]="" (click)="cadastrarGo()" label="Cadastrar">
+                <fa-icon [icon]="newicon" style="margin-right: 5px;"></fa-icon>
+            </p-button>
+        </div>
+    </div>
+    <div id="format" [className]="logado()[0]">
+        <h1>Bem-vindo!</h1>
+        <br><br><br><br>
+        <h2>Sua lista de livros favoritados</h2>
+            <p-table [value]="livros" [tableStyle]="{'min-width': '75rem','max-height': '75rem'}">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th> Título </th>
+                        <th> Autor </th>
+                        <th> Qtd Páginas </th>
+                        <th> Categoria </th>
+                        <th> Genero </th>
+                        <th> Editora </th>
+                        <th> Lançamento </th>
+                        <th> Reviews </th>
+                        <th> Remover </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-livro>
+                    <tr>
+                        <td> {{livro.livro.titulo}} </td>
+                        <td> {{livro.livro.autor}} </td>
+                        <td> {{livro.livro.quantidadePaginas}} </td>
+                        <td> {{livro.livro.categoria}} </td>
+                        <td> {{livro.livro.genero}} </td>
+                        <td> {{livro.livro.editora}} </td>
+                        <td> {{livro.livro.dataLancamento}} </td>
+                        <td> <fa-icon [icon]="like" size="lg"></fa-icon>{{calcRecomendacao(livro.livro.recomendacaoPositiva, livro.livro.recomendacaoNegativa)}}<fa-icon [icon]="unlike" size="lg"></fa-icon> </td>
+                        <td> <p-button [outlined]="true" severity="warning" (click)="tirarFav(livro.livro.livroId)"> <fa-icon [icon]="unFav" size="lg"></fa-icon> </p-button> </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+    </div>
+    <p-toast></p-toast>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="login">
+        <h1>Login</h1>
+        <br>
+        <input type="text" pInputText placeholder="Username" [formControl]="username"/>
+        <br>
+        <input type="text" pInputText placeholder="Senha" [formControl]="senha" />
+        <br>
+        <p-button [icon]="" (click)="logar()" label="Entrar">
+            <fa-icon [icon]="doneIcon" style="margin-right: 5px;"></fa-icon>
+        </p-button>
+        <br>
+        <p-button [icon]="" (click)="cadastrar()" label="Cadastrar">
+            <fa-icon [icon]="newicon" style="margin-right: 5px;"></fa-icon>
+        </p-button>
+    </div>
+    <p-messages [(value)]="mensagem" [enableService]="false" [closable]="true"></p-messages>
+</div>
